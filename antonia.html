@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Privacy</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+<style>
+
+  
+/* Correção de tamanho da logo */
+.header .logo {
+  height: 90px !important;
+}
+
+.aba-midia {
+    display: none;
+    animation: deslizar 0.4s ease forwards;
+  }
+
+  @keyframes deslizar {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .midia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .midia-item {
+    background-color: #f5ede3;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .midia-item img {
+    width: 30px;
+    opacity: 0.5;
+  }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5ede3;
+      color: #000;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background-color: #f5ede3;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .header-icons i {
+      font-size: 22px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .header .logo {
+      height: 90px;
+      cursor: pointer;
+    }
+
+    .header i {
+      font-size: 24px;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #f5ede3;
+    }
+
+    .top-bar i {
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .profile-bubble {
+      background-color: #f5ede3;
+      margin: 20px 15px 25px;
+      padding: 0;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      overflow: visible;
+      position: relative;
+    }
+
+    .cover {
+      width: 100%;
+      height: 90px;
+      background-image: url('https://i.postimg.cc/tgZ7NxmX/IMG-20251120-105020-382.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .profile-pic {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid #000;
+      position: absolute;
+      bottom: -35px;
+      left: 15px;
+      background-image: url('https://i.postimg.cc/Hn4r71v4/IMG-20251120-105004-548.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 10;
+      box-shadow: 0 0 8px rgba(255,255,255,0.3);
+    }
+
+    .stats-inline {
+      position: absolute;
+      bottom: -30px;
+      left: 125px;
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+      z-index: 10;
+    }
+
+    .stats-inline div {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .info {
+      padding: 50px 15px 15px;
+      text-align: left;
+      margin-left: 15px;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
+
+    .name i {
+      color: orange;
+    }
+
+    .username {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .bio {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #ddd;
+      margin-bottom: 15px;
+      max-width: 90%;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .social-icons i {
+      background: #444;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .social-icons i:hover {
+      background: #ff944d;
+      color: #000;
+    }
+
+    .plans {
+      padding: 20px 15px;
+      border-top: 1px solid #222;
+    }
+
+    .plans h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .plan-btn {
+      background: linear-gradient(90deg, #fbc4a0, #fdb58d);
+      color: #000;
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .plan-btn:hover {
+      filter: brightness(1.1);
+    }
+
+    .profile-tabs-bottom {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #f5ede3;
+      border-radius: 20px;
+      padding: 12px;
+      margin: 20px 15px;
+      border: 1px solid #ccc;
+    }
+
+    .profile-tabs-bottom .tab {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #000;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .profile-tabs-bottom .tab.active {
+      color: #ff944d;
+      border-bottom: 2px solid #ff944d;
+    }
+
+    .footer-nav-wrapper {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .footer-nav {
+      background: #111;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 30px;
+      width: 85%;
+      max-width: 340px;
+      height: 48px;
+      pointer-events: auto;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+
+    .footer-nav i {
+      font-size: 20px;
+      color: #000;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .footer-nav .active {
+      color: #ff944d;
+    }
+
+    /* REMOVIDO O NÚMERO 2 DO CHAT */
+    .footer-nav .chat-icon::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f5ede3;
+      padding: 8px 0;
+    }
+
+    .footer-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 60px;
+      font-size: 10px;
+      color: black;
+    }
+
+    .footer-item i {
+      font-size: 22px;
+    }
+
+    .footer-item span {
+      margin-top: 2px;
+      font-size: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .profile-bubble-lower {
+      background-color: #f5ede3;
+      border-radius: 20px;
+      margin: 15px auto 40px auto;
+      padding: 15px;
+      color: white;
+      font-family: sans-serif;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+
+    .midia-grid {
+      background-color: #fff !important; /* branco */
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .midia-quadrado {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      background-color: #fff !important; /* branco */;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .midia-quadrado .cadeado {
+      font-size: 22px;
+      color: white;
+      z-index: 2;
+    }
+.profile-bubble-lower i.ri-verified-badge-fill {
+  color: orange;
+  margin-left: 5px; /* Para dar um espacinho */
+}
+  .popup-pix {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-pix .bolha {
+  width: 90%;
+  max-width: 400px;
+  background-color: #f5ede3;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #ff0069;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.popup-pix .banner {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+
+.popup-pix .fechar-x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 10;
+  background: none;
+  border: none;
+}
+
+.popup-pix .perfil {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-top: -40px;
+  object-fit: cover;
+}
+
+.popup-pix .nome {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.popup-pix .arroba {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.popup-pix .botao {
+  padding: 12px 20px;
+  background-color: #ff0069;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  width: 80%;
+  cursor: pointer;
+  margin: 20px auto;
+}
+
+.popup-pix .botao i {
+  margin-right: 6px;
+}
+/* Popup plano (opcional, se preferir colocar aqui ao invés do inline) */
+#popupPlano {
+  /* Já está no inline, mas se preferir, pode mover para cá */
+}
+
+.popup-bubble {
+  /* já no inline */
+}
+
+/* Pode copiar os estilos inline para cá se quiser */
+
+
+  
+
+
+/* Tema claro com sombras e bordas */
+body {
+    background-color: #f5ede3 !important;
+    color: #000 !important;
+}
+.profile-bubble, .profile-bubble-lower, .popup-bubble, .footer-nav, .midia-quadrado {
+    background-color: #fff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+}
+.popup-bubble {
+    background-color: #fff !important;
+}
+.popup-bubble .name, .popup-bubble .username, .popup-bubble .plan-details, .popup-bubble span {
+    color: #000 !important;
+}
+.plans h3, .plan-btn, .stats-inline div, .name, .username, .bio, .social-icons i {
+    color: #000 !important;
+}
+
+
+@media (prefers-color-scheme: dark) {
+
+/* Correção de tamanho da logo */
+.header .logo { 
+  height: 40px !important;
+  content: url("https://i.postimg.cc/0NpM9f6S/IMG-20250812-043329.jpg")
+}
+
+
+
+
+  .aba-midia {
+    display: none;
+    animation: deslizar 0.4s ease forwards;
+  }
+
+  @keyframes deslizar {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .midia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .midia-item {
+    background-color: #f5ede3;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .midia-item img {
+    width: 30px;
+    opacity: 0.5;
+  }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background-color: #000;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .header-icons i {
+      font-size: 22px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .header .logo {
+      height: 40px;
+      cursor: pointer;
+    }
+
+    .header i {
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #000;
+    }
+
+    .top-bar i {
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .profile-bubble {
+      background-color: #111;
+      margin: 20px 15px 25px;
+      padding: 0;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      overflow: visible;
+      position: relative;
+    }
+
+    .cover {
+      width: 100%;
+      height: 90px;
+      background-image: url('https://i.postimg.cc/tgZ7NxmX/IMG-20251120-105020-382.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .profile-pic {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid #000;
+      position: absolute;
+      bottom: -35px;
+      left: 15px;
+      background-image: url('https://i.postimg.cc/Hn4r71v4/IMG-20251120-105004-548.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 10;
+      box-shadow: 0 0 8px rgba(255,255,255,0.3);
+    }
+
+    .stats-inline {
+      position: absolute;
+      bottom: -30px;
+      left: 125px;
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+      z-index: 10;
+    }
+
+    .stats-inline div {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .info {
+      padding: 50px 15px 15px;
+      text-align: left;
+      margin-left: 15px;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
+
+    .name i {
+      color: orange;
+    }
+
+    .username {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .bio {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #ddd;
+      margin-bottom: 15px;
+      max-width: 90%;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .social-icons i {
+      background: #222;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .social-icons i:hover {
+      background: #ff944d;
+      color: #000;
+    }
+
+    .plans {
+      padding: 20px 15px;
+      border-top: 1px solid #222;
+    }
+
+    .plans h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .plan-btn {
+      background: linear-gradient(90deg, #fbc4a0, #fdb58d);
+      color: #000;
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .plan-btn:hover {
+      filter: brightness(1.1);
+    }
+
+    .profile-tabs-bottom {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #111;
+      border-radius: 20px;
+      padding: 12px;
+      margin: 20px 15px;
+      border: 1px solid #222;
+    }
+
+    .profile-tabs-bottom .tab {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .profile-tabs-bottom .tab.active {
+      color: #ff944d;
+      border-bottom: 2px solid #ff944d;
+    }
+
+    .footer-nav-wrapper {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .footer-nav {
+      background: #111;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 30px;
+      width: 85%;
+      max-width: 340px;
+      height: 48px;
+      pointer-events: auto;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+
+    .footer-nav i {
+      font-size: 20px;
+      color: #fff;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .footer-nav .active {
+      color: #ff944d;
+    }
+
+    /* REMOVIDO O NÚMERO 2 DO CHAT */
+    .footer-nav .chat-icon::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #111;
+      padding: 8px 0;
+    }
+
+    .footer-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 60px;
+      font-size: 10px;
+      color: white;
+    }
+
+    .footer-item i {
+      font-size: 22px;
+    }
+
+    .footer-item span {
+      margin-top: 2px;
+      font-size: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .profile-bubble-lower {
+      background-color: #111;
+      border-radius: 20px;
+      margin: 15px auto 40px auto;
+      padding: 15px;
+      color: white;
+      font-family: sans-serif;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+
+    .midia-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .midia-quadrado {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      background-color: #222;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .midia-quadrado .cadeado {
+      font-size: 22px;
+      color: white;
+      z-index: 2;
+    }
+.profile-bubble-lower i.ri-verified-badge-fill {
+  color: orange;
+  margin-left: 5px; /* Para dar um espacinho */
+}
+  .popup-pix {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-pix .bolha {
+  width: 90%;
+  max-width: 400px;
+  background-color: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #ff0069;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.popup-pix .banner {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+
+.popup-pix .fechar-x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 10;
+  background: none;
+  border: none;
+}
+
+.popup-pix .perfil {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-top: -40px;
+  object-fit: cover;
+}
+
+.popup-pix .nome {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.popup-pix .arroba {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.popup-pix .botao {
+  padding: 12px 20px;
+  background-color: #ff0069;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  width: 80%;
+  cursor: pointer;
+  margin: 20px auto;
+}
+
+.popup-pix .botao i {
+  margin-right: 6px;
+}
+/* Popup plano (opcional, se preferir colocar aqui ao invés do inline) */
+#popupPlano {
+  /* Já está no inline, mas se preferir, pode mover para cá */
+}
+
+.popup-bubble {
+  /* já no inline */
+}
+
+/* Pode copiar os estilos inline para cá se quiser */
+
+
+  
+
+
+/* ===== CORREÇÕES ADICIONAIS PARA MODO ESCURO ===== */
+body, .header, .top-bar, .profile-bubble, .profile-bubble-lower, .footer-nav, .popup-bubble, .popup-pix .bolha, .cover, .profile-pic {
+  background-color: #0f0f10 !important;
+  color: #e6e6e6 !important;
+  border-color: #1b1b1b !important;
+  box-shadow: none !important;
+}
+
+/* Elementos principais */
+.midia-quadrado, .midia-grid, .profile-tabs-bottom, .plans, .profile-bubble .cover, .profile-bubble-lower {
+  background-color: #141414 !important;
+  color: #e6e6e6 !important;
+}
+
+/* Textos e ícones */
+.name, .username, .bio, .stats-inline div, .plans h3, .footer-item span, .profile-tabs-bottom .tab, .profile-tabs-bottom .tab.active, .plan-btn span {
+  color: #e6e6e6 !important;
+}
+
+/* Ícones com fundo arredondado */
+.social-icons i, .header-icons i {
+  background: #222 !important;
+  color: #fff !important;
+}
+
+/* Forçar imagens e botões a adaptarem contraste */
+.plan-btn { color: #000 !important; }
+.footer-nav i, .footer-nav .active { color: #fff !important; }
+
+/* Seletores por atributo para pegar estilos inline comuns e sobrescrever */
+*[style*="background-color: #fff"], *[style*="background-color:#fff"], *[style*="background-color: #fff !important"], *[style*="background-color: #f5ede3"], *[style*="background-color:#f5ede3"] {
+  background-color: #141414 !important;
+}
+*[style*="color: #000"], *[style*="color:#000"], *[style*="color: #000 !important"], *[style*="color:black"] {
+  color: #e6e6e6 !important;
+}
+
+/* Pequenos ajustes visuais */
+.popup-bubble .name, .popup-bubble .username { color: #e6e6e6 !important; }
+
+}
+
+</style>
+
+</head>
+<body>
+<div class="header">
+<img alt="Logo" class="logo" src="https://i.postimg.cc/xdhmTqgw/erasebg-transformed-1.png"/>
+<div class="header-icons">
+<i class="ri-search-line"></i>
+<i class="ri-notification-3-line"></i>
+</div>
+</div>
+<div class="top-bar">
+<i class="ri-arrow-left-line" onclick="window.location.href='https://privacy.com.br/board';" style="cursor:pointer;"></i>
+<span>Antônia Valadão</span>
+<i class="ri-more-2-fill"></i>
+</div>
+<div class="profile-bubble">
+<div class="cover">
+<div class="profile-pic"></div>
+<div class="stats-inline">
+<div><i class="ri-image-line"></i>3.1K</div>
+<div><i class="ri-film-line"></i>1.2K</div>
+<div><i class="ri-lock-line"></i>165</div>
+<div><i class="ri-heart-line"></i>1.4K</div>
+</div>
+</div>
+<div class="info">
+<div class="name">Antonia Valadão <i class="ri-verified-badge-fill"></i></div>
+<div class="username">@Antonia Valadão</div>
+<div class="bio">
+        Post novo duas vezes por dia 🥰 Selfies explícitas, vídeos sozinha e acompanhada,...
+      </div>
+<div class="social-icons">
+<i class="ri-instagram-line"></i>
+<i class="ri-close-line"></i>
+</div>
+</div>
+<div class="plans">
+<h3>Assinaturas</h3>
+<button class="plan-btn" data-link="https://app.pushinpay.com.br/service/pay/A067260A-8EEC-47D1-8813-8E11BD8E1F29">1 mês <span>R$ 39,90</span></button>
+<h3>Promoções</h3>
+<button class="plan-btn" data-link="https://app.pushinpay.com.br/#/service/pay/A06726B2-1E0E-48BD-B8E3-BE7891812172">3 meses (10% off) <span>R$ 89,90</span></button>
+<button class="plan-btn" data-link="https://app.pushinpay.com.br/#/service/pay/A0672710-5572-421F-89D7-2D2491177125">6 meses (10% off) <span>R$ 119,99</span></button>
+</div>
+<div class="profile-tabs-bottom">
+<div class="tab active">
+<i class="ri-smartphone-line"></i>
+<span onclick="mostrarPostagens()" style="cursor: pointer;">368 postagens</span>
+</div>
+<div class="tab">
+<i class="ri-film-line"></i>
+<span onclick="mostrarMidias()" style="cursor: pointer; color: orange;">4.286 Mídias</span>
+</div>
+</div>
+<div class="profile-bubble-lower">
+<div style="display: flex; align-items: center;">
+<img src="https://i.postimg.cc/Hn4r71v4/IMG-20251120-105004-548.jpg" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; margin-right: 10px;"/>
+<div>
+<div class="name" style="font-size:18px; font-weight:bold; display:flex; align-items:center; gap:6px; color: #000;">
+  Antonia Valadão<i class="ri-verified-badge-fill"></i>
+</div>
+<div style="font-size: 14px; color: #aaa;">@Antonia Valadão</div>
+</div>
+</div>
+<div id="abaPostagens" style="margin-top: 15px;">
+<img src="https://i.postimg.cc/x8KNkNFw/IMG-20250807-005842.jpg" style="width: 100%; border-radius: 10px; object-fit: cover;"/>
+</div>
+<div id="abaMidias" style="display: none; margin-top: 15px;">
+<div style="background-color: #fff !important; /* branco */; border-radius: 20px; padding: 10px;">
+<div style="display: flex; justify-content: space-around; margin-bottom: 10px;">
+<span style="color: #ff7754; background-color: #2b1a12; padding: 5px 15px; border-radius: 20px;">Todos</span>
+<span style="color: #000;">Fotos</span>
+<span style="color: #000;">Vídeos</span>
+</div>
+<div class="midia-grid">
+<div class="midia-quadrado">
+<span class="cadeado ri-lock-line"></span>
+<img alt="Imagem" src="https://i.postimg.cc/vmYF5k8q/Screenshot-2025-08-07-03-20-42-816-com-android-chrome-edit.jpg" style="width:100%; height:100%; object-fit: cover; position:absolute; top:0; left:0; border-radius: 10x;"/>
+</div>
+<div class="midia-quadrado">
+<span class="cadeado ri-lock-line"></span>
+<img alt="Imagem" src="https://i.postimg.cc/vmYF5k8q/Screenshot-2025-08-07-03-20-42-816-com-android-chrome-edit.jpg" style="width:100%; height:100%; object-fit: cover; position:absolute; top:0; left:0; border-radius: 10x;"/>
+</div>
+<div class="midia-quadrado">
+<span class="cadeado ri-lock-line"></span>
+<img alt="Imagem" src="https://i.postimg.cc/vmYF5k8q/Screenshot-2025-08-07-03-20-42-816-com-android-chrome-edit.jpg" style="width:100%; height:100%; object-fit: cover; position:absolute; top:0; left:0; border-radius: 10x;"/>
+</div>
+<div class="midia-quadrado">
+<span class="cadeado ri-lock-line"></span>
+<img alt="Imagem" src="https://i.postimg.cc/vmYF5k8q/Screenshot-2025-08-07-03-20-42-816-com-android-chrome-edit.jpg" style="width:100%; height:100%; object-fit: cover; position:absolute; top:0; left:0; border-radius: 10x;"/>
+</div>
+<div class="midia-quadrado">
+<span class="cadeado ri-lock-line"></span>
+<img alt="Imagem" src="https://i.postimg.cc/vmYF5k8q/Screenshot-2025-08-07-03-20-42-816-com-android-chrome-edit.jpg" style="width:100%; height:100%; object-fit: cover; position:absolute; top:0; left:0; border-radius: 10x;"/>
+</div>
+<div class="midia-quadrado">
+<span class="cadeado ri-lock-line"></span>
+<img alt="Imagem" src="https://i.postimg.cc/vmYF5k8q/Screenshot-2025-08-07-03-20-42-816-com-android-chrome-edit.jpg" style="width:100%; height:100%; object-fit: cover; position:absolute; top:0; left:0; border-radius: 10x;"/>
+</div>
+</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+<div style="display: flex; gap: 20px;">
+<i class="ri-heart-line" style="font-size: 22px; color: #aaa;"></i>
+<i class="ri-chat-3-line" style="font-size: 22px; color: #aaa;"></i>
+<i class="ri-money-dollar-circle-line" style="font-size: 22px; color: #aaa;"></i>
+</div>
+<i class="ri-bookmark-line" style="font-size: 22px; color: #aaa;"></i>
+</div>
+<div style="display: flex; justify-content: space-around; margin-top: 20px; border-top: 1px solid #444; padding-top: 15px;">
+<button style="background-color: transparent; border: none; color: white; font-weight: bold; font-size: 15px;">
+<button <="" div="" style="background-color: transparent; border: none; color: white; font-weight: bold; font-size: 15px;">
+</button></button></div>
+<div class="footer-nav-wrapper">
+<div class="footer-nav">
+<div class="footer-item">
+<i class="ri-flashlight-fill active"></i>
+<span>Mural</span>
+</div>
+<div class="footer-item">
+<i class="ri-smartphone-line"></i>
+<span>Feed</span>
+</div>
+<div class="footer-item">
+<i class="ri-line-chart-line"></i>
+<span>Em alta</span>
+</div>
+<div class="footer-item">
+<i class="ri-chat-3-line chat-icon"></i>
+<span>Chat</span>
+</div>
+<div class="footer-item">
+<i class="ri-menu-line"></i>
+<span>Menu</span>
+</div>
+</div>
+</div>
+<!-- POPUP DE PLANOS -->
+<div id="popupPlano" style="display:none; position:fixed; top:0; left:0; width:110vw; height:100vh; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999; padding:-90px;">
+<div class="popup-bubble" style="background:#111; border-radius:20px; max-width:400px; width:90%; color: #000; position:relative; box-shadow:0 0 10px rgba(255,255,255,0.05); overflow:visible; display:flex; flex-direction:column;min-height: 600px;
+">
+<div class="cover" style="width:100%; height:90px; background-image:url('https://i.postimg.cc/tgZ7NxmX/IMG-20251120-105020-382.jpg'); background-size:cover; background-position:center; border-top-left-radius:20px; border-top-right-radius:20px; position:relative;">
+<div class="profile-pic" style="width:70px; height:70px; border-radius:50%; border:3px solid #000; position:absolute; bottom:-35px; left:15px; background-image:url('https://i.postimg.cc/Hn4r71v4/IMG-20251120-105004-548.jpg'); background-size:cover; background-position:center; box-shadow:0 0 8px rgba(255,255,255,0.3); z-index:10;"></div>
+</div>
+<div class="info" style="padding:15px 15px 15px 85px; min-height:90px; box-sizing:border-box; position:relative;">
+<div style="margin-bottom:15px;">
+<div class="name" style="font-size:20px; font-weight:bold; display:flex; align-items:center; gap:6px; color: #000;">
+          Antonia Valadão<i class="ri-verified-badge-fill" style="color:orange;"></i>
+</div>
+<div class="username" style="font-size:14px; color:#aaa;">@Antonia Valadão</div>
+</div>
+<!-- Imagem do plano que aparece no popup -->
+<div class="popup-plan-image" style="text-align: left; margin: 10px 15px 10px -80px;">
+<img src="https://i.postimg.cc/pXnPZYst/1000092228-removebg-preview.png" style="width: 300px; border-radius: 12px;"/>
+</div>
+<div class="plan-details" style="font-size:18px; font-weight:600; color:#ff944d; margin-top:50px; display:flex; justify-content:flex-start; gap:15px; padding:0 15px 15px 15px; border-bottom:1px solid #333;">
+<span id="popupPlanName">Plano</span>
+<span id="popupPlanPrice">Preço</span>
+</div>
+</div>
+<div style="margin-top:20px; width:90%;">
+<a href="https://seulinkdecheckout.com" id="checkoutLink" target="_blank">
+<img alt="Ir para checkout" src="https://i.postimg.cc/1RvSP7jS/1000092260-removebg-preview.png" style="width:100%; border-radius:8px;"/>
+</a>
+</div>
+<button id="fecharPopup" style="margin:102px auto 20px auto; border:none; border-radius:30px; padding:10px 30px; font-weight:bold; font-size:16px; cursor:pointer; display:block; background:#ff944d; color:#000; max-width:320px; width:90%;">Fechar</button>
+</div>
+</div>
+<script>
+    const tabsBottom = document.querySelectorAll('.profile-tabs-bottom .tab');
+    tabsBottom.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabsBottom.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    function mostrarPostagens() {
+      document.getElementById('abaPostagens').style.display = 'block';
+      document.getElementById('abaMidias').style.display = 'none';
+    }
+
+    function mostrarMidias() {
+      document.getElementById('abaPostagens').style.display = 'none';
+      document.getElementById('abaMidias').style.display = 'block';
+    }
+  const botoesPlanos = document.querySelectorAll('.plan-btn');
+  const popup = document.getElementById('popupPlano');
+  const btnFechar = document.getElementById('fecharPopup');
+  const btnCopiarPix = document.getElementById('copiarPix');
+  const popupPlanName = document.getElementById('popupPlanName');
+  const popupPlanPrice = document.getElementById('popupPlanPrice');
+
+  // Sua chave Pix — substitua aqui pela sua real
+  const chavePix = 'meuemail@provedor.com';
+
+  // Link do checkout — substitua pelo seu link real
+  const linkCheckout = 'https://seucheckout.com/pagamento';
+
+
+  const checkoutLink = document.getElementById('checkoutLink');
+  botoesPlanos.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const precoSpan = botao.querySelector('span');
+      const preco = precoSpan ? precoSpan.textContent : '';
+      const nomePlano = botao.textContent.replace(preco, '').trim();
+
+      popupPlanName.textContent = nomePlano;
+      popupPlanPrice.textContent = preco;
+
+      const linkDoPlano = botao.getAttribute('data-link');
+      if (linkDoPlano) {
+        checkoutLink.href = linkDoPlano;
+      }
+
+      popup.style.display = 'flex';
+    });
+  });
+
+
+  btnFechar.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+
+  popup.addEventListener('click', e => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+
+  btnCopiarPix.addEventListener('click', () => {
+    navigator.clipboard.writeText(chavePix).then(() => {alert('Chave Pix copiada! Redirecionando para o checkout...');
+      window.location.href = linkCheckout;
+    }).catch(() => {
+      alert('Não foi possível copiar a chave Pix. Copie manualmente: ' + chavePix);
+      window.location.href = linkCheckout;
+    });
+  });
+  </script>
+</div></div>
+<script>
+(function applyDarkInlineFix(){
+  try {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    function fixOnce(){
+      if (!mq.matches) return;
+      document.querySelectorAll('[style]').forEach(el => {
+        let s = el.getAttribute('style') || '';
+        // Trocar backgrounds claros padrão por escuros
+        s = s.replace(/background-color\s*:\s*#f5ede3\s*!?/ig, 'background-color: #141414 !important');
+        s = s.replace(/background-color\s*:\s*#fff\s*!?/ig, 'background-color: #141414 !important');
+        s = s.replace(/background\s*:\s*#fff\s*!?/ig, 'background-color: #141414 !important');
+        // Trocar cores pretas por claras
+        s = s.replace(/color\s*:\s*#000\s*!?/ig, 'color: #e6e6e6 !important');
+        s = s.replace(/color\s*:\s*black\s*!?/ig, 'color: #e6e6e6 !important');
+        // Ajuste rápido para valores de rgb/rgba comuns (ex: rgba(0,0,0,0.85))
+        s = s.replace(/rgba?\(\s*0\s*,\s*0\s*,\s*0\s*(?:,[^\)]*)?\)\s*!?/ig, 'color: #e6e6e6 !important');
+        el.setAttribute('style', s);
+      });
+    }
+    // Roda uma vez ao carregar e quando houver mudança de preferência
+    window.addEventListener('load', fixOnce);
+    if (mq.addEventListener) mq.addEventListener('change', fixOnce);
+    else if (mq.addListener) mq.addListener(fixOnce);
+    fixOnce();
+  } catch(e) {
+    console.warn('Erro ao aplicar correção de tema escuro:', e);
+  }
+})();
+</script>
+
+</body>
+</html>
