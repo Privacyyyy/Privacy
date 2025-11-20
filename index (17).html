@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Atendimento VIP - Vídeo Chamada</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1:#0a0f2c;
+      --bg-2:#0f1550;
+      --accent:#1e4bff;
+      --accent-2:#00d4ff;
+      --glass: rgba(20,35,120,0.55);
+      --neon-shadow: 0 6px 30px rgba(30,75,255,0.18), 0 0 40px rgba(30,75,255,0.06) inset;
+      --card: rgba(255,255,255,0.03);
+      --muted: rgba(255,255,255,0.7);
+      --max-width:420px;
+    }
+
+    *{ box-sizing:border-box }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(135deg,var(--bg-1),#11173d);
+      font-family:'Poppins',sans-serif;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:28px 16px;
+      min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* HEADER */
+    .top-header{
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 18px;
+      background:linear-gradient(180deg,rgba(12,20,60,0.72),rgba(6,10,30,0.30));
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(30,75,255,0.08);
+      box-shadow:0 8px 40px rgba(5,8,25,0.6);
+    }
+
+    .logo-header{
+      height:56px;
+      border-radius:14px;
+      max-width:260px;
+      object-fit:cover;
+      background:rgba(255,255,255,0.03);
+      padding:6px;
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow:0 6px 20px rgba(30,75,255,0.14);
+    }
+
+    .badge{
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(30,75,255,0.14);
+      border:1px solid rgba(30,75,255,0.09);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .page-wrap{
+      width:100%;
+      max-width:var(--max-width);
+      margin-top:100px;
+    }
+
+    .container{
+      width:100%;
+      padding:22px;
+      background:rgba(255,255,255,0.02);
+      border-radius:20px;
+      border:1px solid rgba(30,75,255,0.06);
+      box-shadow:var(--neon-shadow);
+      text-align:center;
+    }
+
+    .profile-image{
+      width:128px; height:128px;
+      border-radius:50%;
+      border: 4px solid rgba(30,75,255,0.16);
+      background-size:cover;
+      background-position:center;
+      margin:12px auto;
+      box-shadow:0 8px 30px rgba(30,75,255,0.16);
+    }
+
+    /* ONLINE BOX */
+    #onlineBox{
+      margin:0 auto 15px;
+      padding:10px 14px;
+      width:fit-content;
+      border-radius:12px;
+      background:rgba(0,140,255,0.12);
+      border:1px solid rgba(0,140,255,0.25);
+      font-size:14px;
+      box-shadow:0 0 12px rgba(0,140,255,0.25);
+      backdrop-filter:blur(6px);
+    }
+
+    /* BUTTON PULSANTE */
+    .btn-primary{
+      width:100%;
+      background:linear-gradient(90deg,#1e4bff,#003bff);
+      padding:18px 20px;
+      font-size:20px;
+      font-weight:800;
+      border:none;
+      border-radius:16px;
+      color:white;
+      cursor:pointer;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+
+      box-shadow:
+        0 0 25px rgba(30,75,255,0.8),
+        0 0 55px rgba(0,140,255,0.5),
+        inset 0 0 18px rgba(255,255,255,0.22);
+
+      animation:pulsar 1.4s infinite ease-in-out;
+      transition:.2s;
+    }
+
+    @keyframes pulsar{
+     0%{ transform:scale(1); box-shadow:0 0 20px rgba(30,75,255,0.7);}
+     50%{ transform:scale(1.06); box-shadow:0 0 45px rgba(30,75,255,1);}
+     100%{ transform:scale(1); box-shadow:0 0 20px rgba(30,75,255,0.7);}
+    }
+
+    /* PHONE SECTION (inline form if needed) */
+    .phone-section{
+      display:none;
+      margin-top:18px;
+      padding:18px;
+      border-radius:14px;
+      background: linear-gradient(180deg, rgba(10,15,44,0.6), rgba(6,8,30,0.45));
+      border:1px solid rgba(30,75,255,0.07);
+    }
+    .phone-input{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:2px solid rgba(30,75,255,0.16);
+      background: rgba(10,15,44,0.65);
+      color:white;
+      font-size:15px;
+      margin-bottom:12px;
+      outline:none;
+      text-align:center;
+    }
+    .phone-input:focus{ box-shadow: 0 6px 28px rgba(30,75,255,0.06); border-color:var(--accent); }
+
+    /* POPUPS DE COMPRA */
+    #comprasPopupContainer{
+      position:fixed;
+      bottom:20px;
+      left:20px;
+      z-index:3000;
+    }
+
+    .compra-popup{
+      background:rgba(30,75,255,0.20);
+      border:1px solid rgba(30,75,255,0.30);
+      padding:12px 16px;
+      border-radius:12px;
+      margin-top:12px;
+      font-size:14px;
+      opacity:0;
+      transform:translateX(-20px);
+      animation:popupIn .5s forwards;
+      box-shadow:0 8px 22px rgba(30,75,255,0.25);
+    }
+
+    @keyframes popupIn{
+      to{ opacity:1; transform:translateX(0); }
+    }
+
+    @keyframes popupOut{
+      to{ opacity:0; transform:translateX(-20px); }
+    }
+
+    /* MODALS GENERIC */
+    .modal {
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:5000;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .modal-card{
+      width:90%;
+      max-width:420px;
+      background: linear-gradient(180deg, #0f1550, #081033);
+      border-radius:16px;
+      padding:22px;
+      border:1px solid rgba(30,75,255,0.08);
+      box-shadow: 0 18px 60px rgba(2,8,40,0.8);
+      text-align:center;
+    }
+
+    .plan-box{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px;
+      margin:10px 0;
+      border-radius:12px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      cursor:pointer;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:420px){
+      .logo-header{ height:48px; max-width:180px; border-radius:12px }
+      .page-wrap{ margin-top:80px }
+      .profile-image{ width:110px; height:110px }
+    }
+    @media (max-width:340px){
+      .logo-header{ max-width:160px; height:44px }
+      .container{ padding:16px }
+      .profile-image{ width:96px; height:96px }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="top-header" role="banner">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="https://i.postimg.cc/TY7s55rJ/Chat-GPT-Image-17-de-nov-de-2025-11-51-23.png" class="logo-header" alt="Logo">
+      <div style="display:flex;flex-direction:column;line-height:1;">
+        <div style="font-weight:700;font-size:15px">Atendimento VIP</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.75)">Vídeo Chamada - WhatsApp</div>
+      </div>
+    </div>
+
+    <div class="header-right" aria-hidden="true">
+      <div class="badge" id="badgeOnline">Online</div>
+    </div>
+  </header>
+
+  <!-- PAGE WRAP -->
+  <div class="page-wrap">
+    <div id="onlineBox">🔵 <span id="onlineNum">0</span> pessoas online agora</div>
+
+    <main class="container" role="main" aria-labelledby="profileHeading">
+      <div class="profile-image" aria-hidden="true" style="background-image:url('https://i.postimg.cc/hjdGmQtF/IMG-20251120-113547-602.jpg')"></div>
+
+      <h1 id="profileHeading" class="profile-name">Chamada De Vídeo Whatsapp</h1>
+      <p class="profile-subtitle">Chamada de<strong> 1 HORA </strong> no <strong>WhatsApp</strong> OFERTA LIMITADA!</p>
+
+      <!-- Botão pulsante principal -->
+      <button id="btnMain" class="btn-primary" onclick="abrirModalCompra()" aria-label="Entrar na fila e pagar com PIX">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width:22px;">
+        FAZER CHAMADA
+      </button>
+
+      <!-- Phone inline option (shows after returning if you want) -->
+      <div id="phoneSection" class="phone-section" aria-hidden="true">
+        <h3 style="margin:6px 0 10px">Digite seu número (WHATSAPP)</h3>
+        <input id="phoneInput" class="phone-input" type="tel" placeholder="(11) 99999-9999" aria-label="Telefone WhatsApp">
+        <button class="btn-primary" onclick="cadastrarNumero()">Cadastrar Número</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL: Compra (abre para checkout) -->
+  <div id="modalCompra" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <h2 style="margin:6px 0 10px">1 Hora De Chamada</h2>
+      <p style="color:rgba(255,255,255,0.8); margin:0 0 16px">Clique abaixo para efetuar o pagamento (Pix).</p>
+      <button class="btn-primary" onclick="irParaCheckout()">PAGAR NO PIX</button>
+      <button onclick="fecharModalCompra()" style="margin-top:12px;background:none;border:none;color:#fff8;font-size:15px">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- MODAL: Confirmacao (após cadastrar número) -->
+  <div id="modalConfirmacao" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <h2>Número cadastrado!</h2>
+      <p style="color:rgba(255,255,255,0.8); margin:0 0 12px">Você será chamado em breve.</p>
+      <p style="margin:10px 0 8px">Sua posição na fila:</p>
+      <div id="filaNumero" style="font-size:40px;font-weight:800;color:var(--accent-2);margin-bottom:12px">...</div>
+      <button class="btn-primary" onclick="abrirModalPlanos()">Pular Fila 🚀</button>
+      <button onclick="fecharModalConfirmacao()" style="margin-top:10px;background:none;border:none;color:#fff8;font-size:15px">Fechar</button>
+    </div>
+  </div>
+
+  <!-- MODAL: Planos -->
+  <div id="modalPlanos" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <h2>Pular Fila</h2>
+      <div class="plan-box" onclick="comprarPlano('turbo')" role="button" tabindex="0">
+        <div><div style="font-weight:800">Pular 10 posições</div><div style="font-size:12px;color:rgba(255,255,255,0.75)">Rápido e econômico</div></div>
+        <div style="font-weight:800;color:var(--accent-2)">R$ 9,00</div>
+      </div>
+      <div class="plan-box" onclick="comprarPlano('ultra')" role="button" tabindex="0">
+        <div><div style="font-weight:800">Pular 80 números</div><div style="font-size:12px;color:rgba(255,255,255,0.75)">Mais visibilidade</div></div>
+        <div style="font-weight:800;color:var(--accent-2)">R$ 35,00</div>
+      </div>
+      <div class="plan-box" onclick="comprarPlano('diamante')" role="button" tabindex="0">
+        <div><div style="font-weight:800">TOPO DA FILA</div><div style="font-size:12px;color:rgba(255,255,255,0.75)">Prioridade máxima</div></div>
+        <div style="font-weight:800;color:var(--accent-2)">R$ 120,00</div>
+      </div>
+
+      <button onclick="fecharModalPlanos()" style="margin-top:8px;background:none;border:none;color:#fff8;font-size:15px">Fechar</button>
+    </div>
+  </div>
+
+  <!-- POPUPS DE COMPRA (canto inferior esquerdo) -->
+  <div id="comprasPopupContainer"></div>
+
+  <!-- POPUP CENTRAL: Pedir Número (aparece quando voltar do checkout se ainda NÃO cadastrou) -->
+  <div id="popupNumero" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);z-index:6000;justify-content:center;align-items:center;">
+    <div style="width:90%;max-width:360px;background:rgba(20,25,60,0.92);padding:25px;border-radius:18px;text-align:center;border:1px solid rgba(30,75,255,0.25);box-shadow:0 0 30px rgba(0,140,255,0.25);">
+      <h2 style="margin-top:0;font-size:22px;">Quase lá!</h2>
+      <p style="color:#fff8;font-size:15px;line-height:1.4;">Para continuar, adicione seu número para receber a chamada:</p>
+
+      <input id="numeroCliente" type="tel" placeholder="(11) 99999-9999" style="width:100%;margin-top:12px;padding:14px;font-size:16px;border-radius:12px;border:1px solid rgba(0,140,255,0.3);background:rgba(255,255,255,0.06);color:white;outline:none;text-align:center;">
+
+      <button onclick="salvarNumeroCliente()" class="btn-primary" style="margin-top:18px;">Confirmar Número</button>
+
+      <button onclick="fecharPopupNumero()" style="background:none;border:none;color:#fff8;margin-top:10px;font-size:14px;">Fechar</button>
+    </div>
+  </div>
+<script>
+/* ===========================
+   UTIL / MODAL HELPERS
+   =========================== */
+function showModalId(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.style.display = "flex";
+  el.setAttribute('aria-hidden','false');
+}
+function hideModalId(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.style.display = "none";
+  el.setAttribute('aria-hidden','true');
+}
+
+function abrirModalCompra(){ showModalId('modalCompra'); }
+function fecharModalCompra(){ hideModalId('modalCompra'); }
+function abrirModalPlanos(){ hideModalId('modalConfirmacao'); showModalId('modalPlanos'); }
+function fecharModalPlanos(){ hideModalId('modalPlanos'); }
+function fecharModalConfirmacao(){ hideModalId('modalConfirmacao'); }
+
+/* ===========================
+   CHECKOUT → RETORNO
+   =========================== */
+
+// ABRE O CHECKOUT CORRETO (SEM TROCAR SEU LINK)
+function irParaCheckout(){
+  // Apenas marca que saiu, SEMPRE
+  sessionStorage.setItem("saiuDoCheckout", "1");
+
+  // Abre checkout em nova aba
+  window.open(
+    'https://app.pushinpay.com.br/#/service/pay/A0672B51-0638-48B9-8C36-1A353B7AB2D9',
+    '_blank'
+  );
+
+  fecharModalCompra();
+}
+
+// SEMPRE que voltar para o site → abre o popup
+function verificarRetorno(){
+  const flag = sessionStorage.getItem("saiuDoCheckout");
+
+  if(flag){
+    abrirPopupNumero();
+
+    // NÃO limpa o flag → assim sempre abre
+    // sessionStorage.removeItem("saiuDoCheckout");
+  }
+}
+
+window.addEventListener("focus", verificarRetorno);
+window.addEventListener("pageshow", verificarRetorno);
+window.addEventListener("visibilitychange", () => {
+  if(!document.hidden) verificarRetorno();
+});
+window.addEventListener("load", verificarRetorno);
+
+/* ===========================
+   POPUP QUASE LÁ
+   =========================== */
+function abrirPopupNumero(){
+  document.getElementById("popupNumero").style.display = "flex";
+}
+function fecharPopupNumero(){
+  document.getElementById("popupNumero").style.display = "none";
+}
+
+function salvarNumeroCliente(){
+  const el = document.getElementById('numeroCliente');
+  const numero = el.value.trim();
+  const digitos = numero.replace(/\D/g,'');
+
+  if(digitos.length < 9){
+    alert("Digite um número válido.");
+    return;
+  }
+
+  fecharPopupNumero();
+
+  document.getElementById('filaNumero').textContent =
+    Math.floor(Math.random()*1000)+1;
+
+  showModalId('modalConfirmacao');
+}
+
+/* ===========================
+   PLANO REDIRECIONAMENTO
+   =========================== */
+function comprarPlano(plano){
+  const urls = {
+    "turbo":    "https://app.pushinpay.com.br/#/service/pay/A060EABC-B802-4DB7-A486-9CE2A857590E",
+    "ultra":    "https://app.pushinpay.com.br/#/service/pay/A060EBA7-8875-4996-929F-1070D3CD4A3E",
+    "diamante": "https://app.pushinpay.com.br/#/service/pay/A060EC30-269F-472F-95D3-A9B576132828"
+  };
+
+  // Marca que saiu
+  sessionStorage.setItem("saiuDoCheckout", "1");
+
+  window.open(urls[plano], "_blank");
+}
+
+/* ===========================
+   CONTADOR ONLINE
+   =========================== */
+function gerarOnline(){
+  const online = Math.floor(Math.random()*60)+20;
+  document.getElementById('onlineNum').textContent = online;
+}
+setInterval(gerarOnline, 5000);
+gerarOnline();
+
+/* ===========================
+   POPUPS DE COMPRA ALEATÓRIO
+   =========================== */
+const nomesBrasileiros = [
+  "João Pedro","Gabriel Souza","Lucas Almeida","Felipe Martins",
+  "Mateus Silva","Rafael Ribeiro","Gustavo Oliveira","Bruno Fernandes",
+  "Daniel Costa","Thiago Duarte","Leonardo Mendes","Caio Andrade",
+  "Henrique Lopes","Diego Barbosa","Eduardo Santos","André Monteiro",
+  "Murilo Rocha","Otávio Nunes","Samuel Freitas","Victor Azevedo",
+  "Alexandre Peixoto","Igor Cardoso","Jonathan Vieira","Marcelo Lima"
+];
+
+function gerarCompraAleatoria(){
+  const nome = nomesBrasileiros[Math.floor(Math.random()*nomesBrasileiros.length)];
+  const container = document.getElementById("comprasPopupContainer");
+  const popup = document.createElement("div");
+  popup.className = "compra-popup";
+  popup.innerText = `${nome} acabou de comprar 🔥`;
+  container.appendChild(popup);
+  setTimeout(()=>{
+    popup.style.animation = "popupOut .5s forwards";
+    setTimeout(()=> popup.remove(), 500);
+  },5000);
+}
+setInterval(gerarCompraAleatoria, 12000);
+setTimeout(gerarCompraAleatoria, 4000);
+</script>
+
+  
